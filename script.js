@@ -23,6 +23,7 @@ const typeColors = {
     dragon: '#DA627D',
     steel: '#1D8A99',
     fighting: '#2F2F2F',
+    fairy: '#F9A1BC',
     default: '#2A1A1F',
 }
 
