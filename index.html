@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <form action="" onsubmit="searchPokemon(event)">
+    <form action="" onsubmit="receiveInput(event)">
         <input type="text" name="pokemon" id="input" autocomplete="off" placeholder="Search for a Pokémon">
         <!-- Mejora posible: incluir un pokémon aleatorio en el placeholdeer-->
     </form>
@@ -20,7 +20,10 @@
     <div data-poke-card class="poke-card">
         <div data-poke-name>CARD DEX</div>
         <div data-poke-img-container class="img-container">
-            <img data-poke-img class="poke-img" src="./unknown-poke.png" />
+            <img data-poke-img class="poke-img" src="./img/unknown-poke.png" />
+        </div>
+        <div data-poke-shiny class="shiny-button-container">
+            <button class="shiny-button" onclick="toggleShiny()"></button>
         </div>
         <div data-poke-id></div>
         <div data-poke-types class="poke-types"></div>

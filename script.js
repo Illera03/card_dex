@@ -5,6 +5,7 @@ const pokeImgContainer = document.querySelector('[data-poke-img-container]');
 const pokeId = document.querySelector('[data-poke-id]');
 const pokeTypes = document.querySelector('[data-poke-types]');
 const pokeStats = document.querySelector('[data-poke-stats]');
+let shiny = false;
 
 const typeColors = {
     fire: '#FF675C',
@@ -27,9 +28,13 @@ const typeColors = {
     default: '#2A1A1F',
 }
 
-const searchPokemon = event => {
+const receiveInput = event => {
     event.preventDefault(); //Se cancela el submit del formulario.
-    const { value } = event.target.pokemon; //Se obtiene el valor del input.
+    searchPokemon(event.target.pokemon.value); //Se llama a la función searchPokemon.
+    shiny = false; // Se asegura de que no se muestre la versión shiny
+
+}
+const searchPokemon = value => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${value.toLowerCase()}`) //Se hace la petición a la API.
         .then(data => data.json()) //Se convierte la respuesta a JSON.
         .then(response => renderPokemonData(response)) //Se llama a la función renderPokemonData con los datos obtenidos.
@@ -37,7 +42,13 @@ const searchPokemon = event => {
 }
 
 const renderPokemonData = data => {
-    const sprite = data.sprites.front_default; //Se obtiene la imagen del pokemon.
+    let sprite;
+    if (!shiny) {
+        sprite = data.sprites.front_default; //Se obtiene la imagen del pokemon.   
+    }
+    else {
+        sprite = data.sprites.front_shiny; //Se obtiene la imagen shiny del pokemon.
+    }
     const { stats, types } = data; //Se obtienen las stats y los tipos del pokemon.
     const name = data.name; //Se obtiene el nombre del pokemon.
     const id = data.id; //Se obtiene el id del pokemon.
@@ -83,11 +94,16 @@ const renderPokemonStats = stats => {
 
 const renderNotFound = () => {
     pokeName.textContent = 'Unknown'; //Se asigna un mensaje de error.
-    pokeImg.setAttribute('src', './unknown-poke.png'); //Se asigna una imagen de pokeball.
+    pokeImg.setAttribute('src', './img/unknown-poke.png'); //Se asigna una imagen de pokeball.
     pokeImg.style.background = '#f3f4f7'; //Se asigna un color de fondo.
     pokeTypes.innerHTML = ''; //Se limpian los tipos.
     pokeStats.innerHTML = ''; //Se limpian las stats.
     pokeId.textContent = ''; //Se limpia el id.
+}
+
+const toggleShiny = () => {
+    shiny = !shiny; // Se cambia el valor de shiny
+    searchPokemon(pokeName.textContent); // Se vuelve a buscar el pokemon
 }
 
 async function actualizarPlaceholder() {

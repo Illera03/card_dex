@@ -61,3 +61,42 @@ input {
     height: 180px;
     border-radius: 50%;
 }
+
+/* Contenedor del botón Shiny */
+.shiny-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    /* Fondo y sombras eliminadas */
+}
+
+/* Botón Shiny */
+.shiny-button {
+    background-image: url(./img/shiny-icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    width: 35px;
+    height: 35px;
+    border: 1px solid black;
+    /* Borde fino */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    background-color: #ffffff;
+    /* Fondo blanco */
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+.shiny-button:hover {
+    border-color: #ffde06;
+    /* Cambio de color sutil en el borde */
+}
+
+.shiny-button:active {
+    transform: scale(0.9);
+}
