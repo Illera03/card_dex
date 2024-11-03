@@ -8,6 +8,16 @@ input {
     padding: 10px;
 }
 
+.card-dex {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: #06bdff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
 .poke-card {
     position: relative;
     height: fit-content;
@@ -99,4 +109,8 @@ input {
 
 .shiny-button:active {
     transform: scale(0.9);
+}
+
+.hidden {
+    display: none;
 }

@@ -7,22 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CARD DEX</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="script.js" type="text/javascript" defer></script>
     <link href="styles.css" rel="stylesheet" />
 </head>
 
 <body>
     <form action="" onsubmit="receiveInput(event)">
-        <input type="text" name="pokemon" id="input" autocomplete="off" placeholder="Search for a Pokémon">
+        <input type="text" name="pokemon" id="input" autocomplete="off" placeholder="">
         <!-- Mejora posible: incluir un pokémon aleatorio en el placeholdeer-->
     </form>
 
     <div data-poke-card class="poke-card">
-        <div data-poke-name>CARD DEX</div>
+        <div data-card-dex class="card-dex">CARD DEX</div>
+        <div data-poke-name class="name"></div>
         <div data-poke-img-container class="img-container">
-            <img data-poke-img class="poke-img" src="./img/unknown-poke.png" />
+            <img data-poke-img class="poke-img" />
         </div>
-        <div data-poke-shiny class="shiny-button-container">
+        <div data-poke-shiny-container class="hidden">
             <button class="shiny-button" onclick="toggleShiny()"></button>
         </div>
         <div data-poke-id></div>
