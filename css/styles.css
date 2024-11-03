@@ -86,7 +86,7 @@ input {
 
 /* Botón Shiny */
 .shiny-button {
-    background-image: url(./img/shiny-icon.png);
+    background-image: url(../images/shiny-icon.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 70%;
