@@ -98,7 +98,7 @@ const renderPokemonStats = stats => {
 const renderNotFound = () => {
     shinyButtonContainer.classList.add('hidden');
     pokeName.textContent = '???'; //Se asigna un mensaje de error.
-    pokeImg.setAttribute('src', '../images/unknown-poke.png'); //Se asigna una imagen de pokeball.
+    pokeImg.setAttribute('src', './images/unknown-poke.png'); //Se asigna una imagen de pokeball.
     pokeImg.style.background = '#f3f4f7'; //Se asigna un color de fondo.
     pokeTypes.innerHTML = ''; //Se limpian los tipos.
     pokeStats.innerHTML = ''; //Se limpian las stats.
