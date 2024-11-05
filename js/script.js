@@ -6,11 +6,10 @@ const pokeId = document.querySelector('[data-poke-id]');
 const pokeTypes = document.querySelector('[data-poke-types]');
 const pokeStats = document.querySelector('[data-poke-stats]');
 const shinyButtonContainer = document.querySelector('[data-poke-shiny-container]');
-console.log(shinyButtonContainer); // Debería mostrar el elemento si está correctamente referenciado
-let shiny = false;
-
 const unknownPokemonImage = document.createElement('img');
 unknownPokemonImage.src = 'images/unknown-poke.png';
+
+let shiny = false;
 
 const typeColors = {
     fire: '#FF675C',
@@ -100,7 +99,7 @@ const renderPokemonStats = stats => {
 
 const renderNotFound = () => {
     shinyButtonContainer.classList.add('hidden');
-    pokeName.textContent = '???'; //Se asigna un mensaje de error.
+    pokeName.textContent = 'NOT FOUND'; //Se asigna un mensaje de error.
     pokeImg.setAttribute('src', unknownPokemonImage.src); //Se asigna la imagen de error.
     pokeImg.style.background = '#f3f4f7'; //Se asigna un color de fondo.
     pokeTypes.innerHTML = ''; //Se limpian los tipos.
